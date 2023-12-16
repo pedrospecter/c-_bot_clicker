@@ -27,7 +27,7 @@ static async Task randomScrollAsync(ChromeDriver driver)
 
 static async Task ViewAsync(string URL, string GEO)
 {
-    string chromeDriverPath = "chromedriver_x";
+    string chromeDriverPath = "chromedriver";
     var chromeOptions = new ChromeOptions();
     string userAgent = RandomUa.RandomUserAgent;
     chromeOptions.AddArgument("headless"); // Run Chrome in headless mode
@@ -71,14 +71,14 @@ app.MapPost("/", async (HttpRequest request, BodyRequesti body) =>
     var timeInterval = TimeSpan.FromMinutes(60.0 / body.Views); // Calculate time interval between each bot creation
     var tasks = new List<Task>();
 
-    // while (DateTime.Now < endTime)
-    // {
-    //     var task = ViewAsync(body.Url, body.Geo);
-    //     tasks.Add(task);
-    //     await Task.Delay(timeInterval);
-    // }
+    while (DateTime.Now < endTime)
+    {
+        var task = ViewAsync(body.Url, body.Geo);
+        tasks.Add(task);
+        await Task.Delay(timeInterval);
+    }
 
-    // await Task.WhenAll(tasks);
+    await Task.WhenAll(tasks);
 
     return Results.Ok();
 });
