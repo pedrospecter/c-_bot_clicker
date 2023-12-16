@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/c#_t_bot.props" />
+</Project>
