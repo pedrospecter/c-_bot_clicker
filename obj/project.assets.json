@@ -42,6 +42,12 @@
         "build": {
           "buildTransitive/Selenium.WebDriver.targets": {}
         }
+      },
+      "Selenium.WebDriver.GeckoDriver/0.33.0": {
+        "type": "package",
+        "build": {
+          "build/Selenium.WebDriver.GeckoDriver.targets": {}
+        }
       }
     }
   },
@@ -118,12 +124,33 @@
         "selenium.webdriver.4.16.2.nupkg.sha512",
         "selenium.webdriver.nuspec"
       ]
+    },
+    "Selenium.WebDriver.GeckoDriver/0.33.0": {
+      "sha512": "73AN577bb5u2aXRUtWyAzUU2ThYCI1QIhUxbL3bC0bUwpeSNGr8ca5KkKC8cUPtyf+q0aDzxNseyu3uL0SDq6w==",
+      "type": "package",
+      "path": "selenium.webdriver.geckodriver/0.33.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/DefinePropertiesGeckoDriver.targets",
+        "build/Selenium.WebDriver.GeckoDriver.targets",
+        "driver/linux64/geckodriver",
+        "driver/mac64/geckodriver",
+        "driver/mac64arm/geckodriver",
+        "driver/win32/geckodriver.exe",
+        "driver/win64/geckodriver.exe",
+        "nupkg-icon.png",
+        "selenium.webdriver.geckodriver.0.33.0.nupkg.sha512",
+        "selenium.webdriver.geckodriver.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "RandomUserAgent >= 1.1.2",
-      "Selenium.WebDriver >= 4.16.2"
+      "Selenium.WebDriver >= 4.16.2",
+      "Selenium.WebDriver.GeckoDriver >= 0.33.0"
     ]
   },
   "packageFolders": {
@@ -170,6 +197,10 @@
           "Selenium.WebDriver": {
             "target": "Package",
             "version": "[4.16.2, )"
+          },
+          "Selenium.WebDriver.GeckoDriver": {
+            "target": "Package",
+            "version": "[0.33.0, )"
           }
         },
         "imports": [

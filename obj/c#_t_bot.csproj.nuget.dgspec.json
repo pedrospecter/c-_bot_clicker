@@ -45,6 +45,10 @@
             "Selenium.WebDriver": {
               "target": "Package",
               "version": "[4.16.2, )"
+            },
+            "Selenium.WebDriver.GeckoDriver": {
+              "target": "Package",
+              "version": "[0.33.0, )"
             }
           },
           "imports": [
