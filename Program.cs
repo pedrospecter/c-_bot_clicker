@@ -29,6 +29,7 @@ static async Task ViewAsync(string URL, string GEO)
 {
     string chromeDriverPath = "chromedriver";
     var chromeOptions = new ChromeOptions();
+    Console.WriteLine("hello");
     string userAgent = RandomUa.RandomUserAgent;
     chromeOptions.AddArgument("headless"); // Run Chrome in headless mode
     chromeOptions.AddArgument($"user-agent={userAgent}");
@@ -37,7 +38,7 @@ static async Task ViewAsync(string URL, string GEO)
     chromeOptions.AddAdditionalOption("useAutomationExtension", false);
     ChromeDriver driver = new(chromeOptions);
 
-    string url = "https://www.cw1.com/";
+    string url = URL;
 
     // Navigate to the specified URL
     driver.Navigate().GoToUrl(url);
@@ -61,11 +62,10 @@ app.MapGet("/", () => "Hello");
 
 app.MapPost("/", async (HttpRequest request, BodyRequesti body) =>
 {
-    Console.WriteLine("hello");
+    
     if (!request.Headers.ContainsKey("IX")) { return Results.Problem("Authorization token is missing.", statusCode: 401); }
     var authorizationHeader = request.Headers["IX"].ToString();
     if (authorizationHeader != "JXStncq0") { return Results.Problem("Invalid authorization token.", statusCode: 403); };
-    Console.WriteLine("hello2");
     var startTime = DateTime.Now;
     var endTime = startTime.AddMinutes(60);
     var timeInterval = TimeSpan.FromMinutes(60.0 / body.Views); // Calculate time interval between each bot creation
