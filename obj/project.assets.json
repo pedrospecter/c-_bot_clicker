@@ -159,11 +159,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/user/Desktop/hacks/c#_t_bot/c#_t_bot.csproj",
+      "projectUniqueName": "/Users/user/Desktop/hacks/c-_bot_clicker/c#_t_bot.csproj",
       "projectName": "c#_t_bot",
-      "projectPath": "/Users/user/Desktop/hacks/c#_t_bot/c#_t_bot.csproj",
+      "projectPath": "/Users/user/Desktop/hacks/c-_bot_clicker/c#_t_bot.csproj",
       "packagesPath": "/Users/user/.nuget/packages/",
-      "outputPath": "/Users/user/Desktop/hacks/c#_t_bot/obj/",
+      "outputPath": "/Users/user/Desktop/hacks/c-_bot_clicker/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/user/.nuget/NuGet/NuGet.Config"

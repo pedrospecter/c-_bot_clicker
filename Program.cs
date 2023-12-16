@@ -36,7 +36,8 @@ static async Task ViewAsync(string URL, string GEO)
     chromeOptions.AddArgument("start-maximized");
     chromeOptions.AddExcludedArgument("enable-automation");
     chromeOptions.AddAdditionalOption("useAutomationExtension", false);
-    string driverPaht = "/crhomedriver";
+    string driverPaht = "chromedriver";
+
     // var firefoxOptions = new FirefoxOptions();
     // string userAgent = RandomUa.RandomUserAgent;
     // firefoxOptions.AddArgument($"user-agent={userAgent}");
