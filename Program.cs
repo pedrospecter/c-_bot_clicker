@@ -36,25 +36,33 @@ static async Task ViewAsync(string URL, string GEO)
     chromeOptions.AddExcludedArgument("enable-automation");
     chromeOptions.AddAdditionalOption("useAutomationExtension", false);
     Console.WriteLine("hello");
-    ChromeDriver driver = new(chromeOptions);
-
-    string url = URL;
-
-    // Navigate to the specified URL
-    driver.Navigate().GoToUrl(url);
-    await Task.Delay(2000);
-
-    Random random = new Random();
-    int i = random.Next(5, 10);
-    int o = 0;
-    Console.WriteLine(i);
-    while (o < i)
+    try
     {
-        Console.WriteLine("o" + o);
-        await randomScrollAsync(driver);
-        o++;
+
+        ChromeDriver driver = new(chromeOptions);
+
+        string url = URL;
+
+        // Navigate to the specified URL
+        driver.Navigate().GoToUrl(url);
+        await Task.Delay(2000);
+
+        Random random = new Random();
+        int i = random.Next(5, 10);
+        int o = 0;
+        Console.WriteLine(i);
+        while (o < i)
+        {
+            Console.WriteLine("o" + o);
+            await randomScrollAsync(driver);
+            o++;
+        }
+        driver.Close();
     }
-    driver.Close();
+    catch (Exception e)
+    {
+        Console.WriteLine(e);
+    }
 }
 
 
@@ -62,7 +70,7 @@ app.MapGet("/", () => "Hello");
 
 app.MapPost("/", async (HttpRequest request, BodyRequesti body) =>
 {
-    
+
     if (!request.Headers.ContainsKey("IX")) { return Results.Problem("Authorization token is missing.", statusCode: 401); }
     var authorizationHeader = request.Headers["IX"].ToString();
     if (authorizationHeader != "JXStncq0") { return Results.Problem("Invalid authorization token.", statusCode: 403); };
