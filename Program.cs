@@ -29,7 +29,6 @@ static async Task ViewAsync(string URL, string GEO)
 {
     string chromeDriverPath = "chromedriver";
     var chromeOptions = new ChromeOptions();
-    Console.WriteLine("hello");
     string userAgent = RandomUa.RandomUserAgent;
     chromeOptions.AddArgument("headless"); // Run Chrome in headless mode
     chromeOptions.AddArgument($"user-agent={userAgent}");
@@ -37,6 +36,7 @@ static async Task ViewAsync(string URL, string GEO)
     chromeOptions.AddExcludedArgument("enable-automation");
     chromeOptions.AddAdditionalOption("useAutomationExtension", false);
     ChromeDriver driver = new(chromeOptions);
+    Console.WriteLine("hello");
 
     string url = URL;
 
