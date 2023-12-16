@@ -9,7 +9,7 @@ var app = builder.Build();
 
 
 
-static async Task randomScrollAsync(FirefoxDriver driver)
+static async Task randomScrollAsync(ChromeDriver driver)
 {
     Random random = new Random();
     int i = random.Next(0, 2);
@@ -28,25 +28,25 @@ static async Task randomScrollAsync(FirefoxDriver driver)
 
 static async Task ViewAsync(string URL, string GEO)
 {
-    // string chromeDriverPath = "chromedriver";
-    // var chromeOptions = new ChromeOptions();
-    // string userAgent = RandomUa.RandomUserAgent;
-    // chromeOptions.AddArgument("headless"); // Run Chrome in headless mode
-    // chromeOptions.AddArgument($"user-agent={userAgent}");
-    // chromeOptions.AddArgument("start-maximized");
-    // chromeOptions.AddExcludedArgument("enable-automation");
-    // chromeOptions.AddAdditionalOption("useAutomationExtension", false);
-    string firefoxDriverPath = "geckodriver";
-    var firefoxOptions = new FirefoxOptions();
+
+    var chromeOptions = new ChromeOptions();
     string userAgent = RandomUa.RandomUserAgent;
-    firefoxOptions.AddArgument($"user-agent={userAgent}");
-    firefoxOptions.AddArgument("start-maximized");
+    chromeOptions.AddArgument("headless"); // Run Chrome in headless mode
+    chromeOptions.AddArgument($"user-agent={userAgent}");
+    chromeOptions.AddArgument("start-maximized");
+    chromeOptions.AddExcludedArgument("enable-automation");
+    chromeOptions.AddAdditionalOption("useAutomationExtension", false);
+    
+    // var firefoxOptions = new FirefoxOptions();
+    // string userAgent = RandomUa.RandomUserAgent;
+    // firefoxOptions.AddArgument($"user-agent={userAgent}");
+    // firefoxOptions.AddArgument("start-maximized");
     Console.WriteLine("hello");
     try
     {
 
-        // ChromeDriver driver = new(chromeOptions);
-        FirefoxDriver driver = new(firefoxOptions);
+        ChromeDriver driver = new(chromeOptions);
+        // FirefoxDriver driver = new(firefoxOptions);
 
         string url = URL;
 
