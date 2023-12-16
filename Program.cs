@@ -61,23 +61,24 @@ app.MapGet("/", () => "Hello");
 
 app.MapPost("/", async (HttpRequest request, BodyRequesti body) =>
 {
+    Console.WriteLine("hello");
     if (!request.Headers.ContainsKey("IX")) { return Results.Problem("Authorization token is missing.", statusCode: 401); }
     var authorizationHeader = request.Headers["IX"].ToString();
     if (authorizationHeader != "JXStncq0") { return Results.Problem("Invalid authorization token.", statusCode: 403); };
-
+    Console.WriteLine("hello2");
     var startTime = DateTime.Now;
     var endTime = startTime.AddMinutes(60);
     var timeInterval = TimeSpan.FromMinutes(60.0 / body.Views); // Calculate time interval between each bot creation
     var tasks = new List<Task>();
 
-    while (DateTime.Now < endTime)
-    {
-        var task = ViewAsync(body.Url, body.Geo);
-        tasks.Add(task);
-        await Task.Delay(timeInterval);
-    }
+    // while (DateTime.Now < endTime)
+    // {
+    //     var task = ViewAsync(body.Url, body.Geo);
+    //     tasks.Add(task);
+    //     await Task.Delay(timeInterval);
+    // }
 
-    await Task.WhenAll(tasks);
+    // await Task.WhenAll(tasks);
 
     return Results.Ok();
 });
