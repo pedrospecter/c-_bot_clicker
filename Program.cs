@@ -31,7 +31,7 @@ static async Task ViewAsync(string URL, string GEO)
 
     var chromeOptions = new ChromeOptions();
     string userAgent = RandomUa.RandomUserAgent;
-    chromeOptions.AddArgument("headless=new"); // Run Chrome in headless mode
+    // chromeOptions.AddArgument("headless=new"); // Run Chrome in headless mode
     chromeOptions.AddArgument($"user-agent={userAgent}");
     chromeOptions.AddArgument("start-maximized");
     chromeOptions.AddExcludedArgument("enable-automation");
