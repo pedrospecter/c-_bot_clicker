@@ -36,7 +36,7 @@ static async Task ViewAsync(string URL, string GEO)
     chromeOptions.AddArgument("start-maximized");
     chromeOptions.AddExcludedArgument("enable-automation");
     chromeOptions.AddAdditionalOption("useAutomationExtension", false);
-    
+    string driverPaht = "/crhomedriver";
     // var firefoxOptions = new FirefoxOptions();
     // string userAgent = RandomUa.RandomUserAgent;
     // firefoxOptions.AddArgument($"user-agent={userAgent}");
@@ -45,7 +45,7 @@ static async Task ViewAsync(string URL, string GEO)
     try
     {
 
-        ChromeDriver driver = new(chromeOptions);
+        ChromeDriver driver = new(driverPaht,chromeOptions);
         // FirefoxDriver driver = new(firefoxOptions);
 
         string url = URL;
